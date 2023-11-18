@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+{#  d-none d-xxl-block #}
+
+
+<div class="container-fluid d-none d-xxl-block" style="height: 300px;">
+
+
+
+
+      <div id="sliderCartas" class="carousel slide" data-bs-ride="carousel" style="height: 300px;">
+          
+        <div class="carousel-inner ">
+          <div class="carousel-item active">
+            <div class="card text-center" style="width: auto;height: 300px;" >
+              <div class="card-body">
+                <h1>Comunicados</h1>
+              </div>
+            </div>
+          </div> 
+
+          {% for msg in mensaje %}
+          {% if msg.visible %}   
+          
+          <div class="carousel-item" >
+      
+            <div class="card" style="width: auto;height: 300px;" >
+              <div class="card-body">
+                <h5 class="card-title">{{msg.titulo}}</h5><!--Titulo-->
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{msg.entidad}}</h6><!--subtitulo-->
+                <p class="card-text">{{msg.comunicado}}</p>
+              </div>
+            </div>
+      
+      
+      
+          </div>   
+          {% endif %}
+          {% endfor %}             
+
+          <!--div del inner-->
+        </div>
+        <button class="carousel-control-prev"  type="button" data-bs-target="#sliderCartas" data-bs-slide="prev" >
+          <span class="carousel-control-prev-icon" aria-hidden="true" data-bs-theme="dark"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#sliderCartas" data-bs-slide="next" >
+          <span class="carousel-control-next-icon" aria-hidden="true" data-bs-theme="dark"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      
+
+      </div>
+
+
+</div>
+
+
+
+
+<!--Cartas-->
+<div class="container d-block d-xxl-none">
+  <div class="row">
+
+    <!--seccion for-->
+  {% for msg in mensaje %}
+    {% if msg.visible %}
+
+    <div class="col-12 col-md-6 col-xl-4" style="padding-top: 20px;">
+      <div class="card" style="width: 18rem;height: 240px;">
+        <div class="card-body">
+          <h5 class="card-title">{{msg.titulo}}</h5><!--Titulo-->
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{msg.entidad}}</h6><!--subtitulo-->
+          <p class="card-text">{{msg.comunicado}}</p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <!--ultima parte de la seccion-->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--div del row-->
+  </div>
+  <!--div del container-->
+</div>
+
+
+
+  
+
+
+
+  
+
+
+  {% endblock %}
