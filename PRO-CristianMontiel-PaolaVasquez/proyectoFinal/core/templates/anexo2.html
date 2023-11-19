@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +45,7 @@
  <header class="masthead">
     <div class="container">
         <div class="row">
-            <img src="estilos/img/sede.jpg" class="img-fluid"alt="fondo"> 
+            <img src="{% static 'estilos/img/sede.jpg' %}" class="img-fluid"alt="fondo"> 
          </div>
         </div>
   </header>
@@ -174,9 +175,9 @@
 
 
      <!-- Pié de página -->
-     <footer class="footer text-faded text-center py-5">
+     <footer class="footer text-faded text-center py-5"> 
         <div class="container"> 
-          <img src="estilos/img/Negro_Sello_Acreditacion_2028.png">
+          <img src="{% static 'estilos/img/Negro_Sello_Acreditacion_2028.png' %}">
         </div>
       </footer>
 

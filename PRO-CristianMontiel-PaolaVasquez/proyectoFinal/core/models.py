@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -30,6 +32,6 @@ class Evento(models.Model):
         (3,"Profesor"),
         (4,"Jefe de Carrera")
                         )
-    tipo = models.IntegerField(choices=descripcion,default=1) 
+    #tipo = models.IntegerField(choices=descripcion,default=1) 
     segmento = models.IntegerField(choices=segmentoEleccion)
 
