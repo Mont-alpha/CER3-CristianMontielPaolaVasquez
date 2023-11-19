@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #004B85;
+    height: 80px;
+    padding: 0.5rem;
+}
+
+
+
+.nav-link {
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #e6d6d6;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #F7AE00;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before, .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.header {
+    background: url(sede.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+
+}
+
+
+
+.footer {
+    background-color: #004B85;
+    padding: 0.5rem;
+
+}
