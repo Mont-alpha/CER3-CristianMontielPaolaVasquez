@@ -6,4 +6,7 @@ from .models import *
 
 
 def index(request):
+    prueba = Evento.objects.all()
+    for j in prueba:
+        print(j.asociacion)
     return render(request,"anexo2.html")
