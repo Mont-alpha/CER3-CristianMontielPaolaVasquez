@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <table class="table table-bordered border-primary">
+        <thead>
+            <tr>
+                <th> Hito </th>
+                <th> Fecha Inicio </th>
+                <th> Fecha de término </th>
+                <th> Tipo </th>
+                <th> Segmento </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for objeto in  informacion%}
+            <tr>
+                <th scope="row"> </th>
+                <td>{{objeto.titulo}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            {% endfor %}
+
+
+        </tbody>
+
+    </table>
+</div>
+
+
+{% for objeto in  informacion%}
+
+
+{% endfor %}

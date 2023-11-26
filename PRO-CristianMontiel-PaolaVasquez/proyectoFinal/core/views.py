@@ -6,7 +6,16 @@ from .models import *
 
 
 def index(request):
-    prueba = Evento.objects.all()
-    for j in prueba:
-        print(j.asociacion)
-    return render(request,"anexo2.html")
+    filtrarUsuario = SegmentoUsario.objects.all()
+    segmentoslistados = Segmento.objects.all()
+    data = {"filtro": filtrarUsuario,"segmentoLista": segmentoslistados}
+    
+    usuariosListados = list()
+    for u in filtrarUsuario:
+        usuariosListados.append(u.usuario.all())
+    data = {"filtro": filtrarUsuario,"segmentoLista": usuariosListados}
+    print(type(usuariosListados[0][0]))
+
+    
+  
+    return render(request,"anexo2.html",data)

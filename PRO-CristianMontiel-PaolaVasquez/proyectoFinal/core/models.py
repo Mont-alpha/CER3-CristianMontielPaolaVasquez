@@ -2,7 +2,7 @@ from typing import Any
 from django.utils import timezone
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,PermissionsMixin
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -22,7 +22,7 @@ class Segmento(models.Model):
     def __str__(self):
         return self.tipo
     
-class CustomAccountManager(BaseUserManager): #creacion por consola, al usar manage.py createsuperuser -> invocar la funcion create_superuser por haber
+'''class CustomAccountManager(BaseUserManager): #creacion por consola, al usar manage.py createsuperuser -> invocar la funcion create_superuser por haber
     def create_user(self, identifier,email,first_name,last_name,password,**other_fields):
         if not email:
             raise ValueError(_('Ingresa una direccion de correo correcta'))
@@ -52,7 +52,7 @@ class UserProfile(AbstractBaseUser,PermissionsMixin):
     is_active = models.BooleanField(default=False)
     objects = CustomAccountManager()
     USERNAME_FIELD = 'identifier' #un atributo va ser elegido para ser nombre , pero no se puede usar para otros uso como required
-    REQUIRED_FIELDS = ['first_name','last_name','email']
+    REQUIRED_FIELDS = ['first_name','last_name','email']'''
 
 
 class Evento(models.Model):
@@ -79,6 +79,10 @@ class Evento(models.Model):
     tipo = models.IntegerField(choices=tipoEleccion,default=1) 
     def __str__(self) -> str:
         return self.titulo
+
+class SegmentoUsario(models.Model):
+    segmentoAsocaido = models.OneToOneField(Segmento,on_delete=models.CASCADE)
+    usuario = models.ManyToManyField(User)
     
 
 

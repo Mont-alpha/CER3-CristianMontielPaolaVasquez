@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-se@!2#*6ta#75gx&w@@c0355q#)y!h-b@9+rsyt_j%(+1q=r0b
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_REDIRECT_URL = "inicio"
+LOGOUT_REDIRECT_URL = "inicio"
 
 # Application definition
 
@@ -40,8 +41,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'coreapi', #para documentacion -> urls_doc
     'api',
+    'crispy_forms',
+    "crispy_bootstrap5",
     'core'
 ]
+#CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" #pip install crispy-bootstrap5
+CRISPY_TEMPLATE_PACK = 'bootstrap5' #pip install django-crispy-forms
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,4 +136,4 @@ REST_FRAMEWORK = {
   'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
-AUTH_USER_MODEL = "core.UserProfile"
+#AUTH_USER_MODEL = "core.UserProfile"
