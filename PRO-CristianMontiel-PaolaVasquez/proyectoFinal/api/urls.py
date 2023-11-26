@@ -9,5 +9,4 @@ router.register('Evento',views.EventoViewSet)
 
 urlpatterns = [
 path('', include(router.urls)),
-path('peticion',views.peticiones,name="peticion")
 ]

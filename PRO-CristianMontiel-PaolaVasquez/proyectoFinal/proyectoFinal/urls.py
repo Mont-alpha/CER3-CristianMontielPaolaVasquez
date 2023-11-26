@@ -22,7 +22,7 @@ from core import views #toma las funciones que se contengan en views de la aplic
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name="inicio"),
-    path('accounts/',include('django.contrib.auth.urls')),
+    path('accounts/',include('django.contrib.auth.urls')), #login
     path('api/',include('api.urls'),name="direccionesApi")
     
 ]
