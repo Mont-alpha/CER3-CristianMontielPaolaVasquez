@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name="inicio"),
     path('accounts/',include('django.contrib.auth.urls')), #login
-    path('api/',include('api.urls'),name="direccionesApi")
+    path('api/',include('api.urls'),name="direccionesApi"),
+    path('<str:eliminar>',views.index2,name="eliminado")
     
 ]

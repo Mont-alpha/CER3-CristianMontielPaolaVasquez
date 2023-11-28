@@ -28,9 +28,12 @@
       </div>
 </div>
 <br>
+{% for j in ListaEventos %}
 <div class="card"> 
     <div class="card-body">
-        <form action="http://127.0.0.1:8000/api/Evento/" method="post">{% csrf_token %}
+        
+        <form action="http://127.0.0.1:8000/api/Evento/{{j.id}}/" method="post">{% csrf_token %}
+            Evento: {{j.titulo}}
             <!-- Repetir por cada elemento del evento -->
             <div class="form-group">
                 <input type="text" name="" id="" class="form-control" placeholder="Titulo">
@@ -45,21 +48,18 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-success btn-block">Guardar Evento</button>
             </div>
-            
         </form>
-
     </div>
 </div>   
+{% endfor %}
+<h3>Eliminacion de eventos</h3>
 
-<div class="card"> 
-    <div class="card-body">
+    {% for j in ListaEventos %}
+    <br>
+    <a href="{% url 'eliminado' j.id %}"><button type="submit" class="btn btn-primary">Eliminar {{j.titulo}}</button></a>
+    <br>
+    {% endfor %}
 
-    </div>
-</div> 
-    
-
-    </div>
-</form>
 
 {% endif %}
 
